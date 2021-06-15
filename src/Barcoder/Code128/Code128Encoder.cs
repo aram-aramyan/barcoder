@@ -11,7 +11,7 @@ namespace Barcoder.Code128
             if (content == null) throw new ArgumentNullException(nameof(content));
 
             if (gs1ModeEnabled)
-                content = Gs1Encoder.Encode(content, Constants.FNC1);
+                content = Gs1Encoder.Encode(content, Constants.FNC1, Constants.GS);
 
             char[] contentChars = content.ToCharArray();
             if (contentChars.Length <= 0 || contentChars.Length > 80)

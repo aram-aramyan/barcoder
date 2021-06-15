@@ -15,5 +15,6 @@ namespace Barcoder.DataMatrix
         public const byte LatchToTextEncodation = 239;
         public const byte LatchToEdifactEncodation = 240;
         public const byte ECI = 241;
+        public const byte GS = 29;
     }
 }

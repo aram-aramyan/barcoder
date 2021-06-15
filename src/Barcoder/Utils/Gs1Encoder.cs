@@ -14,7 +14,7 @@ namespace Barcoder.Utils
         private static readonly Lazy<IReadOnlyDictionary<string, bool>> Fnc1RequiredLookup
             = new Lazy<IReadOnlyDictionary<string, bool>>(() => ApplicationIdentifiers.ToDictionary(x => x.Ai, x => x.Fnc1Required));
 
-        public static string Encode(string content, char fnc1)
+        public static string Encode(string content, char fnc1, char gs)
         {
             content = RemoveSpaces(content);
             var encodedString = new StringBuilder();
@@ -30,16 +30,16 @@ namespace Barcoder.Utils
                     throw new ArgumentException($"Application identifier '{applicationIdentifier + data}' does not match '{regularExpression}'", nameof(content));
                 }
 
-                if (!Fnc1RequiredLookup.Value.TryGetValue(applicationIdentifier, out bool fnc1Required))
-                    fnc1Required = true;
+                if (!Fnc1RequiredLookup.Value.TryGetValue(applicationIdentifier, out bool gsRequired))
+                    gsRequired = true;
 
                 encodedString.Append(applicationIdentifier);
                 encodedString.Append(data);
-                if (fnc1Required)
-                    encodedString.Append(fnc1);
+                if (gsRequired)
+                    encodedString.Append(gs);
             }
 
-            return encodedString.ToString().TrimEnd(fnc1);
+            return encodedString.ToString().TrimEnd(gs);
         }
 
         private static string RemoveSpaces(string content)

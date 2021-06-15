@@ -81,7 +81,7 @@ namespace Barcoder.DataMatrix
         }
 
         internal static byte[] EncodeGs1(string content)
-            => EncodeText(Gs1Encoder.Encode(content, (char)DataMatrixSpecialCodewords.FNC1), skipFnc1: true);
+            => EncodeText(Gs1Encoder.Encode(content, (char)DataMatrixSpecialCodewords.FNC1, (char)DataMatrixSpecialCodewords.GS), skipFnc1: true);
 
         internal static byte[] AddPadding(byte[] data, int toCount)
         {

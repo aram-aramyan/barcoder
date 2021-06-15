@@ -124,6 +124,11 @@ namespace Barcoder.Code128
         public const byte StopSymbol = 106;
 
         /// <summary>
+        /// Group Separator
+        /// </summary>
+        public const char GS = '\u001D';
+
+        /// <summary>
         /// Special Function 1
         /// </summary>
         public const char FNC1 = '\u00f1';

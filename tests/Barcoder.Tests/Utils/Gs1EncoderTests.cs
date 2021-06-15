@@ -13,7 +13,7 @@ namespace Barcoder.Tests.Utils
         public void Encode_ValidContent_ShouldEncodeCorrectly(string content, string expectedResult)
         {
             // Act
-            string result = Gs1Encoder.Encode(content, '/');
+            string result = Gs1Encoder.Encode(content, '/', '/');
 
             // Assert
             result.Should().Be(expectedResult);
@@ -25,7 +25,7 @@ namespace Barcoder.Tests.Utils
         public void Encode_InvalidContent_ShouldThrowException(string content, string expectedExceptionMessage)
         {
             // Act
-            Action action = () => Gs1Encoder.Encode(content, '/');
+            Action action = () => Gs1Encoder.Encode(content, '/', '/');
 
             // Assert
             action.Should().Throw<ArgumentException>()
